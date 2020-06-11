@@ -1,0 +1,20 @@
+const length = 10000;
+
+const sort = (num) => num.toString().split('').sort().join('');
+
+const sequence = () => [...Array(length).keys()];
+const cubes = () => sequence().map(n => (n * n * n));
+const cube_array = cubes();
+const cube_strings = cubes().map(n => sort(n));
+
+const calc = () => {
+    let found = 0;
+    for(let i = 0; i < cube_strings.length && found === 0; i++) {
+        if(cube_strings.reduce((count, next) => count += next === cube_strings[i] ? 1 : 0, 0) >= 5) {
+            found = cube_array[i];
+        }
+    }
+    console.log(found)
+};
+
+calc();

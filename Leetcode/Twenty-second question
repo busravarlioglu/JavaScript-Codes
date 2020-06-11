@@ -1,0 +1,12 @@
+var generateParenthesis = function(n) {
+    let solution = [];
+    let genP = (leftP, rightP, partial) => {
+        
+        if(leftP > rightP) return;
+        if(!leftP && !rightP) solution.push(partial);
+        if(leftP > 0) genP(leftP-1, rightP, partial+'(')
+        if(rightP > 0) genP(leftP, rightP-1, partial+')')
+    }
+    genP(n,n,''); 
+    return solution;
+};

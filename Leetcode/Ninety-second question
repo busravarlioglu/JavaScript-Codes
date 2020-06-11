@@ -1,0 +1,25 @@
+var reverseBetween = function(head, m, n) {
+    if(!head || !head.next){return head}
+    return reverseLinkedList(head,m,n,1);
+};
+function reverseLinkedList(head,m,n,k){
+    let prev = null,next=null,prevTemp = null;
+    if(k >=m && k<=n){
+        while(head && k >=m && k<=n){
+            next = head.next
+            head.next = prev;
+            prev = head;
+            head = next;
+            k++;
+        }
+        prevTemp = prev;
+        while(prevTemp && prevTemp.next){
+            prevTemp = prevTemp.next;
+        }
+        prevTemp.next = next;
+        return prev;
+    }else{
+       head.next = reverseLinkedList(head.next,m,n,k+1);
+       return head; 
+    }
+}

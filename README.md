@@ -1,2 +1,2 @@
-# JavaScript-kodlar-
-Problemlerin JavaScript ile çözümleri
+# JavaScript-codes-
+Problem solving with JavaScript
